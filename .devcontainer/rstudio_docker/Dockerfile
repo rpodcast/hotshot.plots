@@ -37,9 +37,13 @@ RUN pip3 install radian
 RUN echo "RENV_PATHS_CACHE=/renv/cache" >> /usr/local/lib/R/etc/Renviron
 
 # [Optional] Uncomment this section to add addtional system dependencies needed for project
-# RUN apt-get update \
-#     && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends ---packages list----
+RUN apt-get update \
+    && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends libmagick++-dev libicu-dev libfreetype6-dev libglu1-mesa-dev libpng-dev libgl1-mesa-dev zlib1g-dev imagemagick
+
+RUN apt-get update \
+    && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends libx11-6 libxss1 libxt6 libxext6 libsm6 libice6 xdg-utils
 
 EXPOSE 8787
 
