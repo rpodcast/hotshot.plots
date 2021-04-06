@@ -5,7 +5,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 	},
-	"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined", "--net=host" ],
 
 	// Add more local mounts to container
 	"mounts": [
@@ -38,7 +38,11 @@
 		"GrapeCity.gc-excelviewer",
 		"Mohamed-El-Fodil-Ihaddaden.shinysnip",
 		"RDebugger.r-debugger"
-	]
+	],
+
+	"remoteEnv": {
+		"DISPLAY": ":0"
+	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
